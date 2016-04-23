@@ -1,0 +1,253 @@
+@Kopernicus:AFTER[Kopernicus]
+{
+	Body
+	{
+		name = Laephus
+		Template
+		{
+			name = Kerbin
+			removeAllPQSMods = true
+		}
+		Properties
+		{
+			description = Larinax C is the third planet from Larinax, not that we can find the first two planets. We have just assumed that Larinax has eight planets, but at the moment there is only one. Good idea on the naming, then?
+			radius = 800000
+			rotates = true
+			rotationPeriod = 60000
+			tidallyLocked = false
+			initialRotation = 0
+			geeASL = 1.2
+			timewarpAltitudeLimits = 0 10000 17500 25000 40000 60000 80000 200000
+			ScienceValues
+			{
+				landedDataValue = 7
+				inSpaceLowDataValue = 6.5
+				inSpaceHighDataValue = 6
+				recoveryValue = 8
+				spaceAltitudeThreshold = 175000
+			}
+		}
+		Orbit
+		{
+			referenceBody = Larinax
+			semiMajorAxis = 5000000000
+			inclination = 30
+			eccentricity = 0.009
+			longitudeOfAscendingNode = 0
+			argumentOfPeriapsis = 0
+			meanAnomalyAtEpoch = 0
+			epoch = 0
+			color = 0.5,0.5,0.5,1.0
+		}
+		ScaledVersion
+		{
+			type = Atmospheric
+			fadeStart = 0
+			fadeEnd = 0
+			Material
+			{
+				texture = LarinaxSolarSystem/Laephus/PluginData/LaephusColor.png
+				normals = LarinaxSolarSystem/Laephus/PluginData/LaephusNormal.png
+				shininess = 0.23617
+				rimPower = 3
+				rimBlend = 0.2
+				Gradient
+				{
+					0.0 = 0.9,0.9,0.9,1.0
+					0.5 = 0.9,0.9,0.9,1.0
+					1.0 = 0.0196,0.0196,0.0196,1.0
+				}
+			}
+		}
+		Atmosphere
+		{
+			ambientColor = 0.9,0.9,0.9,1.0
+			lightColor = 0.9,0.9,0.9,1.0
+			enabled = true
+			oxygen = false
+			altitude = 80000
+			pressureCurve
+			{
+				key = 0 130.5455 0 0
+				
+key = 60000 2 0.001 -0.001
+				
+key = 80000 0 0 0
+			}
+			pressureCurveIsNormalised = false
+			temperatureSeaLevel = 30
+			temperatureCurve
+			{
+				key = 0 30 0 0
+				
+key = 80000 0 -0.0005 0
+			}
+			temperatureSunMultCurve
+			{
+				
+				key = 0 30 0 0
+				
+key = 80000 0 -0.0005 0
+			}
+		}
+		PQS
+		{
+			Mods
+			{
+				//VertexSimplexHeightAbsolute
+				//{
+					//name = HeightMod1
+					//seed = 1651
+					//deformity = 10000
+					//octaves = 3
+					//persistence = 0.5
+					//frequency = 1
+					//enabled = true
+					//order = 2
+				//}
+				//VertexSimplexHeightAbsolute
+				//{
+					//name = HeightMod2
+					//seed = 48261317
+					//deformity = 2000
+					//octaves = 3
+					//persistence = 0.5
+					//frequency = 1
+					//enabled = true
+					//order = 3
+				//}
+				//HeightColorMap
+				//{
+					//blend = 0.5
+					//enabled = true
+					//order = 10 //make this number higher than the HeightMods
+					//LandClasses
+					//{
+						//Class
+						//{
+							//name = Base
+							//altitudeStart = 0
+							//altitudeEnd = 0.1
+							//color = 0.5,0.5,0.5,1.0
+							//lerpToNext = true
+						//}
+						//Class
+						//{
+							//name = Low
+							//altitudeStart = 0.1
+							//altitudeEnd = 0.6
+							//color = 0.5,0.5,0.5,1.0
+							//lerpToNext = true
+						//}
+						//Class
+						//{
+							//name = Mid
+							//altitudeStart = 0.6
+							//altitudeEnd = 0.8
+							//color = 0.7,0.7,0.7,1.0
+							//lerpToNext = true
+						//}
+						//Class
+						//{
+							//name = High
+							//altitudeStart = 0.8
+							//altitudeEnd = 2
+							//color = 0.9,0.9,0.9,1.0
+							//lerpToNext = false
+						//}
+					//}
+				//}
+				//VertexHeightOffset
+				//{
+					//offset = 0
+					//enabled = true
+					//order = 1
+				//}
+				VertexHeightMap
+				{
+					map = LarinaxSolarSystem/Laephus/PluginData/LaephusHeight.png
+					offset = 0
+					deformity = 3000.0
+					scaleDeformityByRadius = false
+					order = 20
+					enabled = true
+				}
+				VertexHeightNoiseVertHeightCurve2
+				{
+					deformity = 100
+					ridgedAddSeed = 123456
+					ridgedAddFrequency = 12
+					ridgedAddLacunarity = 2
+					ridgedAddOctaves = 4
+					ridgedSubSeed = 654321
+					ridgedSubFrequency = 12
+					ridgedSubLacunarity = 2
+					ridgedSubOctaves = 4
+					simplexCurve
+					{
+						key = 0 0 0.1466263 0.1466263
+						key = 0.7922793 0.2448772 0.6761706 1.497418
+						key = 1 1 6.106985 6.106985
+					}
+					simplexHeightStart = 0
+					simplexHeightEnd = 6500
+					simplexSeed = 123456
+					simplexOctaves = 4
+					simplexPersistence = 0.6
+					simplexFrequency = 12
+					enabled = true
+					order = 200
+				}
+				HeightColorMap
+				{
+					blend = 1
+					order = 500
+					enabled = true
+					LandClasses
+					{
+						Class
+						{
+							name = Bottom
+							altitudeStart = 0
+							altitudeEnd = 0.7
+							color = 0.2,0.2,0.2,1.0
+							lerpToNext = true
+						}
+						Class
+						{
+							name = Base
+							altitudeStart = 0.7
+							altitudeEnd = 0.75
+							color = 0.3,0.3,0.3,1.0
+							lerpToNext = true
+						}
+						Class
+						{
+							name = Low
+							altitudeStart = 0.75
+							altitudeEnd = 0.85
+							color = 0.4,0.4,0.4,1.0
+							lerpToNext = true
+						}
+						Class
+						{
+							name = Grad
+							altitudeStart = 0.85
+							altitudeEnd = 0.95
+							color = 0.5,0.5,0.5,1.0
+							lerpToNext = true
+						}
+						Class
+						{
+							name = High
+							altitudeStart = 0.95
+							altitudeEnd = 2
+							color = 0.6,0.6,0.6,1.0
+							lerpToNext = false
+						}
+					}
+				}
+			}
+		}
+	}
+}
